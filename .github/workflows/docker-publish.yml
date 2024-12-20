@@ -1,9 +1,12 @@
-name: ci
+# name: ci
 
-on:
-  push:
-    branches:
-      - "main"
+# on:
+#  push:
+#     branches:
+#       - "main"
+
+name: build
+on: [workflow_dispatch]      
 
 env:
   REGISTRY_IMAGE: lhpmain/llonebot-docker
