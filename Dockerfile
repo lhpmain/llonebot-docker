@@ -27,12 +27,12 @@ RUN apt-get update && apt-get install -y \
     apt-get clean --no-install-recommends && \
     rm -rf /var/lib/apt/lists/* && \
     # 安装NoVnc
-    # \
-    # git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
-    # cd /opt && git clone https://github.com/novnc/noVNC.git && \
-    # cd /opt/noVNC/utils && git clone https://github.com/novnc/websockify.git && \
-    # cp /opt/noVNC/vnc.html /opt/noVNC/index.html   && \
-    # \
+    \
+    git config --global http.sslVerify false && git config --global http.postBuffer 1048576000 && \
+    cd /opt && git clone https://github.com/novnc/noVNC.git && \
+    cd /opt/noVNC/utils && git clone https://github.com/novnc/websockify.git && \
+    cp /opt/noVNC/vnc.html /opt/noVNC/index.html   && \
+    \
     # 安装QQ
     arch=$(arch | sed s/aarch64/arm64/ | sed s/x86_64/amd64/) && \
     curl -o /root/linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/852276c1/linuxqq_3.2.5-21453_${arch}.deb && \
@@ -55,7 +55,7 @@ RUN apt-get update && apt-get install -y \
     rm /tmp/LLOneBot.zip && \
     # 自动配置
     \
-     mkdir -p ~/.vnc && \
+    mkdir -p ~/.vnc && \
      \
     echo "#!/bin/bash" > ~/start.sh && \
     echo "chmod 777 /tmp &" >> ~/start.sh && \
