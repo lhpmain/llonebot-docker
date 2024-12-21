@@ -55,20 +55,20 @@ RUN apt-get update && apt-get install -y \
     rm /tmp/LLOneBot.zip && \
     # 自动配置
     \
-    # mkdir -p ~/.vnc && \
-    # \
+     mkdir -p ~/.vnc && \
+     \
     echo "#!/bin/bash" > ~/start.sh && \
     echo "chmod 777 /tmp &" >> ~/start.sh && \
     echo "rm -rf /run/dbus/pid &" >> ~/start.sh && \
     echo "rm /tmp/.X1-lock &" >> ~/start.sh && \
     echo "mkdir -p /var/run/dbus &" >> ~/start.sh && \
     echo "dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &">> ~/start.sh && \
-    # echo "Xvfb :1 -screen 0 1280x1024x16 &" >> ~/start.sh && \
-    # echo "export DISPLAY=:1" >> ~/start.sh && \
+    echo "Xvfb :1 -screen 0 1280x1024x16 &" >> ~/start.sh && \
+    echo "export DISPLAY=:1" >> ~/start.sh && \
     echo "fluxbox &" >> ~/start.sh && \ 
-    # echo "x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &" >> ~/start.sh && \
+    echo "x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &" >> ~/start.sh && \
     echo "nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:5900 --listen 6081 --file-only &" >> ~/start.sh && \
-    # echo "x11vnc -storepasswd \$VNC_PASSWD ~/.vnc/passwd" >> ~/start.sh && \
+    echo "x11vnc -storepasswd \$VNC_PASSWD ~/.vnc/passwd" >> ~/start.sh && \
     # --disable-gpu 不加入
     echo "exec supervisord" >> ~/start.sh && \
     chmod +x ~/start.sh && \
