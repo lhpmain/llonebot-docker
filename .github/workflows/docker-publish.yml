@@ -1,15 +1,11 @@
-# name: ci
-
-# on:
-#  push:
-#     branches:
-#       - "main"
-
-name: build
-on: [workflow_dispatch]      
+name: docker-publish
+on:
+  push:
+    branches:
+      - "main"
 
 env:
-  REGISTRY_IMAGE: lhpmain/llonebot-docker
+  REGISTRY_IMAGE: lhpmain/docker-llonebot
 
 jobs:
   build:
